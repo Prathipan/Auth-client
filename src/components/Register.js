@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import * as yup from "yup";
 import { TextField } from "@mui/material";
+import { URL } from "../config";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const Register = () => {
         if(values.password === values.cpassword)
         {
           const data = await axios.post(
-          "http://localhost:3003/users/register",
+          `${URL}/register`,
           values
         );
         resetForm({ values: "" });

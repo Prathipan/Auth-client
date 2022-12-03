@@ -5,6 +5,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import * as yup from 'yup'
+import { URL } from "../config";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Login = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         const user = await axios.post(
-          "http://localhost:3003/users/login",
+          `${URL}/login`,
           values
         );
         console.log(user);

@@ -2,8 +2,8 @@ import { TextField } from '@mui/material';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React, { useState } from 'react'
-// import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
+import { URL } from '../config';
 
 const ForgotPassword = () => {
     const [message,setMessage] = useState(false);
@@ -18,7 +18,7 @@ const ForgotPassword = () => {
       onSubmit: async (values, { resetForm }) => {
         try {
           const user = await axios.post(
-            "http://localhost:3003/users/sendpasswordlink",
+            `${URL}/sendpasswordlink`,
             values
           );
           // console.log(values);

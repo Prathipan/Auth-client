@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import { URL } from '../config';
 
 const PasswordReset = () => {
    const navigate = useNavigate();
@@ -33,7 +34,7 @@ const PasswordReset = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         const user = await axios.post(
-          `http://localhost:3003/users/${id}/${token}`,
+          `${URL}/${id}/${token}`,
           values
         );
         // console.log(values);
