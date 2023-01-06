@@ -35,6 +35,7 @@ const Register = () => {
           `${URL}/register`,
           values
         );
+        alert(data.data.message);
         resetForm({ values: "" });
         navigate("/");
         }else{
@@ -47,9 +48,10 @@ const Register = () => {
   });
 
   return (
-    <div className="login-section">
-      <div className="form-container">
-        <h3 className="text-center">SignUp form</h3>
+    <div className="login">
+        <h3 className="signUpTitle mb-3">SignUp form</h3>
+        <div className="wrapper">
+        <div className="right">
         <form onSubmit={formik.handleSubmit}>
           <TextField
             label="Name"
@@ -130,7 +132,9 @@ const Register = () => {
             </p>
           </div>
         </form>
-      </div>
+        </div>
+        </div>
+        
     </div>
   );
 };

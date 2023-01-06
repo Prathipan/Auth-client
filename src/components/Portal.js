@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../context/Context";
 // import { Outlet } from 'react-router-dom'
 import Header from "./Header";
+import {posts} from "../data.js"
+import Card from "./Card";
 
 const Portal = () => {
 
@@ -12,6 +14,7 @@ const Portal = () => {
 
   const logoutUser = () => {
      localStorage.removeItem("AuthToken");
+     window.open("http://localhost:3003/auth/logout", "_self");
      navigate("/")
   }
 
@@ -34,14 +37,19 @@ const Portal = () => {
   return (
     <div>
       <Header logoutUser={logoutUser}/>
-      <div className="dash-container">
+        <div className="home">
+            {posts.map(post=>(
+                <Card key={post.id} post={post}/>
+            ))}
+        </div>
+      {/* <div className="dash-container">
         <img
           className="profile-pic"
           src="https://w1.pngwing.com/pngs/743/500/png-transparent-circle-silhouette-logo-user-user-profile-green-facial-expression-nose-cartoon.png"
           alt="profile-img"
         />
         <h1>Email : {loginData.email}</h1>
-      </div>
+      </div> */}
     </div>
   );
 };

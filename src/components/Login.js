@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import * as yup from 'yup'
 import { URL } from "../config";
+import Google from "../images/google.png";
+import Facebook from "../images/facebook.png";
+import Github from "../images/github.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,11 +39,37 @@ const Login = () => {
     },
   });
 
+  const google = () => {
+    window.open("http://localhost:3003/auth/google", "_self");
+  };
+  const github = () => {
+    window.open("http://localhost:3003/auth/github", "_self");
+  };
+
   return (
-    <div className="login-section">
-      <div className="form-container">
-        <h3 className="text-center">Login form</h3>
-        <form onSubmit={formik.handleSubmit}>
+    <div className="login">
+        <h3 className="loginTitle">Login form</h3>
+         <div className="wrapper">
+         <div className="left">
+          <div className="loginButton google" onClick={google}>
+            <img src={Google} height={30} width={30} alt="google" className="icon"/>
+           Google
+          </div>
+          <div className="loginButton facebook" >
+          <img src={Facebook} height={30} width={30} alt="facebook" className="icon"/>
+            Facebook
+          </div>
+          <div className="loginButton github" onClick={github}>
+          <img src={Github} height={30} width={30} alt="github" className="icon"/>
+            Github
+          </div>
+        </div>
+        <div className="center">
+          <div className="line" />
+          <div className="or">OR</div>
+        </div>
+          <div className="right">
+          <form onSubmit={formik.handleSubmit}>
           <TextField
             className="form-control"
             label="Email"
@@ -81,9 +110,11 @@ const Login = () => {
             </div>
           </div>
         </form>
-      </div>
+          </div>
+         </div>
     </div>
   );
 };
 
 export default Login;
+
