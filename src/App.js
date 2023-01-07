@@ -16,7 +16,7 @@ function App() {
 
 	useEffect(() => {
 		const getUser = () => {
-		  fetch("http://localhost:3003/auth/login/success", {
+		  fetch("https://auth-server-ks35.onrender.com/auth/login/success", {
 			method: "GET",
 			credentials: "include",
 			headers: {
