@@ -6,6 +6,7 @@ import { LoginContext } from "../context/Context";
 import Header from "./Header";
 import {posts} from "../data.js"
 import Card from "./Card";
+import { URL } from "../config";
 
 const Portal = () => {
 
@@ -14,13 +15,13 @@ const Portal = () => {
 
   const logoutUser = () => {
      localStorage.removeItem("AuthToken");
-     window.open("http://localhost:3003/auth/logout", "_self");
+     window.open("https://auth-server-ks35.onrender.com/auth/logout", "_self");
      navigate("/")
   }
 
   const dashboardValid = async()=>{
     let token = localStorage.getItem("AuthToken");
-    const user = await axios.get("http://localhost:3003/users/validUser",{
+    const user = await axios.get(`${URL}/validUser`,{
       headers : {
         "Authorization" : token
       }

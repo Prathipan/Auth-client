@@ -40,10 +40,10 @@ const Login = () => {
   });
 
   const google = () => {
-    window.open("http://localhost:3003/auth/google", "_self");
+    window.open("https://auth-server-ks35.onrender.com/auth/google", "_self");
   };
   const github = () => {
-    window.open("http://localhost:3003/auth/github", "_self");
+    window.open("https://auth-server-ks35.onrender.com/auth/github", "_self");
   };
 
   return (

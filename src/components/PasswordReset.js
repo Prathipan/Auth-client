@@ -10,7 +10,7 @@ const PasswordReset = () => {
    console.log(id,token);
 
   const userValid = async() => {
-    const validUser = await axios.get(`http://localhost:3003/users/resetpassword/${id}/${token}`)
+    const validUser = await axios.get(`${URL}/resetpassword/${id}/${token}`)
 
     if(validUser)
     {
